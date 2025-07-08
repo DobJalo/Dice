@@ -127,6 +127,7 @@ function createPuzzle(board, toRemove = 40) {
 }
 
     // show result
+    createPuzzle(matrix, 40); 
     for (let row of matrix) {
       result += row.join(" ") + "\n";
     }
