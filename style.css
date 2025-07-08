@@ -12,13 +12,31 @@
   line-width: 2.5;
 }
 
-/*icons on the left*/
-.button {
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(9, 40px);
+  grid-gap: 0;
+  width: fit-content;
+}
+
+#container button {
   width: 40px;
-  height: 70px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  /*cursor: pointer;*/
+  height: 40px;
+  border: 1px solid gray;
+  font-size: 16px;
+  padding: 0;
+  box-sizing: border-box;
+  background: white;
+  cursor: pointer;
+}
+
+#container button:nth-child(n + 1) {
 }
