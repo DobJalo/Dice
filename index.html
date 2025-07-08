@@ -35,12 +35,16 @@
   }
 
   // mix rows
-  for (let row = 1; row < 9; row++) {
-    const mix1 = Math.floor(Math.random() * 9);
-    const mix2 = Math.floor(Math.random() * 9);
-    
-    [matrix[mix1], matrix[mix2]] = [matrix[mix2], matrix[mix1]];
-  }
+  const base = blockIndex * 3;
+  let row1 = base + Math.floor(Math.random() * 3);
+  let row2 = base + Math.floor(Math.random() * 3);
+  
+  [matrix[row1], matrix[row2]] = [matrix[row2], matrix[row1]];
+}
+
+for (let block = 0; block < 3; block++) {
+  swapRowsInBlock(matrix, block);
+  swapRowsInBlock(matrix, block);
 
   // show
     for (let row of matrix) {
