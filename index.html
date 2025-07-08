@@ -1,3 +1,7 @@
+<body>
+  <pre id="output"></pre>
+
+
 <script>
   const matrix = [];
   const startNum = Math.floor(Math.random() * 9) + 1;
@@ -29,7 +33,11 @@
   }
 
   // show
-  for (let row of matrix) {
-    console.log(row.join(" "));
-  }
-</script>
+  const output = document.getElementById("output");
+    let result = "";
+    for (let row of matrix) {
+      result += row.join(" ") + "\n";
+    }
+    output.textContent = result;
+  </script>
+</body>
