@@ -4,8 +4,8 @@
 
 #output {
   text-align: center;      
-  font-family: monospace;   
   color: var(--green);
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 2.5;
+  line-width: 2.5;
 }
