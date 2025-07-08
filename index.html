@@ -85,7 +85,7 @@ function solveSudokuCount(board, count = {num:0}) {
             board[row][col] = num;
             solveSudokuCount(board, count);
             if (count.num > 1) return; // more then 1 solution = stop
-            board[row][col] = '*';
+            board[row][col] = ' '; //*
           }
         }
         return; // no solutions = exit
@@ -113,7 +113,7 @@ function createPuzzle(board, toRemove = 40) {
     if (removed >= toRemove) break;
     
     const temp = board[r][c];
-    board[r][c] = '*';
+    board[r][c] = ' '; //*
     
     // create copy to compare solution
     const copyBoard = board.map(row => row.slice());
