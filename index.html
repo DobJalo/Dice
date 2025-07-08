@@ -147,8 +147,10 @@ function createPuzzle(board, toRemove = 40) {
   output.textContent = result;
 
     //buttons
-    <button class="left-button">ONE</button>
-    <button class="left-button">TWO</button>
+    const btn = document.createElement('button');
+btn.textContent = 'ONE';
+btn.classList.add('left-button');
+document.body.appendChild(btn);
     
   </script>
 </body>
