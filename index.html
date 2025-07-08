@@ -130,13 +130,10 @@ function createPuzzle(board, toRemove = 40) {
   return board;
 }
 
-    // show result
+    // SHOW RESULT
     createPuzzle(matrix, 40); 
     
-    /*for (let row of matrix) {
-      result += row.join(" ") + "\n";
-    }
-    output.textContent = result;*/
+
     for (let i = 0; i < 9; i++) {
     if (i % 3 === 0 && i !== 0) result += "------+-------+------\n"; 
 
@@ -148,6 +145,10 @@ function createPuzzle(board, toRemove = 40) {
     result += "\n";
   }
   output.textContent = result;
+
+    //buttons
+    <button class="left-button">ONE</button>
+    <button class="left-button">TWO</button>
     
   </script>
 </body>
