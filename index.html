@@ -134,7 +134,7 @@ function createPuzzle(board, toRemove = 40) {
     createPuzzle(matrix, 40); 
     
 
-    for (let i = 0; i < 9; i++) {
+    /*for (let i = 0; i < 9; i++) {
     if (i % 3 === 0 && i !== 0) result += "------+-------+------\n"; 
 
     for (let j = 0; j < 9; j++) {
@@ -144,13 +144,25 @@ function createPuzzle(board, toRemove = 40) {
 
     result += "\n";
   }
-  output.textContent = result;
+  output.textContent = result;*/
 
-    //buttons
-    const btn = document.createElement('button');
-btn.textContent = 'ONE';
+    for (let i = 0; i < 9; i++) {
+
+    for (let j = 0; j < 9; j++) {
+      const btn = document.createElement('button');
+btn.textContent = matrix[i][j];
 btn.classList.add('left-button');
 document.body.appendChild(btn);
+      
+    }
+
+  }
+
+    //buttons
+    /*const btn = document.createElement('button');
+btn.textContent = 'ONE';
+btn.classList.add('left-button');
+document.body.appendChild(btn);*/
     
   </script>
 </body>
