@@ -16,8 +16,8 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;  
+  align-items: center;       
 }
 
 #container {
@@ -30,13 +30,12 @@ body {
 #container button {
   width: 40px;
   height: 40px;
-  border: 1px solid gray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
   font-size: 16px;
   padding: 0;
   box-sizing: border-box;
   background: white;
   cursor: pointer;
-}
-
-#container button:nth-child(n + 1) {
 }
