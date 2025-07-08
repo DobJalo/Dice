@@ -157,8 +157,8 @@ for (let i = 0; i < 9; i++) {
   for (let j = 0; j < 9; j++) {
     const btn = document.createElement('button');
     btn.textContent = matrix[i][j];
-    btn.style.width = '40px';
-    btn.style.height = '40px';
+    /*btn.style.width = '40px';
+    btn.style.height = '40px';*/
 
     // separate 3*3 blocks
     btn.style.borderTop = i % 3 === 0 ? '3px solid black' : '1px solid gray';
