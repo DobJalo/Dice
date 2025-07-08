@@ -146,7 +146,7 @@ function createPuzzle(board, toRemove = 40) {
   }
   output.textContent = result;*/
 
-    const container = document.createElement('div');
+   const container = document.createElement('div');
 container.id = 'container';
 document.body.appendChild(container);
 
@@ -156,10 +156,10 @@ for (let i = 0; i < 9; i++) {
     btn.textContent = matrix[i][j];
 
 
-    btn.style.borderTop = i % 3 === 0 ? '3px solid black' : '1px solid gray';
-    btn.style.borderLeft = j % 3 === 0 ? '3px solid black' : '1px solid gray';
-    btn.style.borderRight = j === 8 ? '3px solid black' : '';
-    btn.style.borderBottom = i === 8 ? '3px solid black' : '';
+    if (i % 3 === 0) btn.style.borderTopWidth = '3px';
+    if (j % 3 === 0) btn.style.borderLeftWidth = '3px';
+    if (j === 8) btn.style.borderRightWidth = '3px';
+    if (i === 8) btn.style.borderBottomWidth = '3px';
 
     container.appendChild(btn);
   }
