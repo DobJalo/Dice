@@ -14,7 +14,8 @@
 
 /*icons on the left*/
 .button {
-  padding: 10px 5px;
+  width: 40px;
+  height: 40px;
   background-color: #4CAF50;
   color: white;
   border: none;
