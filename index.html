@@ -132,9 +132,22 @@ function createPuzzle(board, toRemove = 40) {
 
     // show result
     createPuzzle(matrix, 40); 
-    for (let row of matrix) {
+    
+    /*for (let row of matrix) {
       result += row.join(" ") + "\n";
     }
-    output.textContent = result;
+    output.textContent = result;*/
+    for (let i = 0; i < 9; i++) {
+    if (i % 3 === 0 && i !== 0) result += "------+-------+------\n"; 
+
+    for (let j = 0; j < 9; j++) {
+      if (j % 3 === 0 && j !== 0) result += "| ";
+      result += matrix[i][j] + " ";
+    }
+
+    result += "\n";
+  }
+  output.textContent = result;
+    
   </script>
 </body>
