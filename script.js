@@ -80,7 +80,7 @@ function isValid(board, row, col, num) {
 function solveSudokuCount(board, count = {num:0}) {
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
-      if (board[row][col] === '*') {  // epmty clot
+      if (board[row][col] === ' ') {  //*
         for (let num = 1; num <= 9; num++) {
           if (isValid(board, row, col, num)) {
             board[row][col] = num;
