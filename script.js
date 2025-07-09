@@ -152,9 +152,11 @@ document.body.appendChild(topCenter);
 
 //create buttons
 for (let i = 1; i <= 9; i++) {
+  
   const addBtn = document.createElement("button");
+  
   //addBtn.textContent = i;
-  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
+  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:24px; height:24px;" />`;
 
   
   addBtn.style.margin = "0 5px";  
@@ -169,7 +171,7 @@ for (let i = 1; i <= 9; i++) {
 
     const btn = document.createElement("button");
     //btn.textContent = i;
-    btn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
+    btn.innerHTML = `<img src="${imageMap[i]}" style="width:24px; height:24px;" />`;
     btn.setAttribute("data-value", i);
 
     btn.style.position = "absolute";
@@ -238,8 +240,8 @@ if (fixedCells[row][col]) {
   return;
 }
 
-
-if (!isValid(matrix, row, col, Number(btn.textContent))) {
+const num = Number(btn.getAttribute("data-value"));
+if (!isValid(matrix, row, col, num)) {
   alert("WRONG!");
   btn.remove();
   return;
@@ -290,7 +292,8 @@ for (let i = 0; i < 9; i++) {
     //btn.textContent = matrix[i][j]; replaced
       const value = matrix[i][j];
 if (value !== ' ') {
-  btn.innerHTML = `<img src="${imageMap[value]}" style="width:100%; height:100%;" />`;
+  btn.innerHTML = `<img src="${imageMap[value]}" style="width:90%; height:90%; object-fit: contain;" />`;
+
 } else {
   btn.textContent = ''; 
 }
