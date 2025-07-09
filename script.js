@@ -64,7 +64,7 @@ shuffleCols(matrix);
 
 
 
-    // DELET MATRIX NUMBERS
+    // DELETE MATRIX NUMBERS
     // check if it is possible to put num in (row, col) without conflicts
 function isValid(board, row, col, num) {
   for (let i = 0; i < 9; i++) {
@@ -138,7 +138,7 @@ function createPuzzle(board, toRemove = 40) {
 
 
 
-    createPuzzle(matrix, 40); 
+    createPuzzle(matrix, 5); // 40
     
 // create copy
 const originalMatrix = matrix.map(row => row.slice());
