@@ -39,8 +39,7 @@ body {
   font-size: 16px;
   padding: 0;
   box-sizing: border-box;
-  background: (--green);
-  cursor: pointer;
+  background: var(--green);
 }
 
 #top-center {
@@ -60,7 +59,7 @@ button {
   font-size: 16px;
   padding: 0;
   box-sizing: border-box;
-  background: (--green);
+  background: var(--green);
   cursor: pointer;
   /*width: 40px;
   height: 40px;
