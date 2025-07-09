@@ -52,9 +52,6 @@ function shuffleCols(matrix) {
 shuffleRows(matrix);
 shuffleCols(matrix);
 
-// create copy
-const originalMatrix = matrix.map(row => row.slice());
-const fixedCells = originalMatrix.map(row => row.map(cell => cell !== ' '));
 
 
     // DELET MATRIX NUMBERS
@@ -133,6 +130,9 @@ function createPuzzle(board, toRemove = 40) {
 
     createPuzzle(matrix, 40); 
     
+// create copy
+const originalMatrix = matrix.map(row => row.slice());
+const fixedCells = originalMatrix.map(row => row.map(cell => cell !== ' '));
 
    
 // create container on top
