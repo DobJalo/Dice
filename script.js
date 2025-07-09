@@ -158,6 +158,10 @@ const topCenter = document.createElement("div");
 topCenter.id = "top-center";
 document.body.appendChild(topCenter);
 
+const container = document.createElement('div');
+container.id = 'container';
+document.body.appendChild(container);
+
 //create buttons
 for (let i = 1; i <= 9; i++) {
   
@@ -297,9 +301,9 @@ function matricesAreEqual(mat1, mat2) {
 
     
 // create main sudoku table
-   const container = document.createElement('div');
+   /*const container = document.createElement('div');
 container.id = 'container';
-document.body.appendChild(container);
+document.body.appendChild(container);*/
 
 for (let i = 0; i < 9; i++) {
   for (let j = 0; j < 9; j++) {
