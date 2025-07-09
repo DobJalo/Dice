@@ -274,6 +274,7 @@ if (isPuzzleComplete(matrix)) {
 
 
 
+  
       
     break;
   }
