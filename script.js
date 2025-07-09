@@ -134,28 +134,56 @@ function createPuzzle(board, toRemove = 40) {
     createPuzzle(matrix, 40); 
     
 
-    /*for (let i = 0; i < 9; i++) {
-    if (i % 3 === 0 && i !== 0) result += "------+-------+------\n"; 
+   
+// create container on top
+const topCenter = document.createElement("div");
+topCenter.id = "top-center";
+document.body.appendChild(topCenter);
 
-    for (let j = 0; j < 9; j++) {
-      if (j % 3 === 0 && j !== 0) result += "| ";
-      result += matrix[i][j] + " ";
-    }
+// create button
+const addBtn = document.createElement("button");
+addBtn.id = "addButton";
+addBtn.textContent = "Создать";
+topCenter.appendChild(addBtn);
 
-    result += "\n";
+// move button
+addBtn.addEventListener("click", () => {
+  const btn = document.createElement("button");
+  btn.textContent = "🔘";
+  btn.style.position = "absolute";
+  btn.style.left = "50%";
+  btn.style.top = "50%";
+  btn.style.transform = "translate(-50%, -50%)";
+  btn.style.zIndex = "1000";
+  document.body.appendChild(btn);
+
+  let offsetX = 0;
+  let offsetY = 0;
+
+  function onMouseMove(e) {
+    btn.style.left = `${e.pageX - offsetX}px`;
+    btn.style.top = `${e.pageY - offsetY}px`;
   }
-  output.textContent = result;*/
 
-    <form>
-                <input id = "word" type = "text" name = "word">
-                <input id = "add" type = "button" value = "Add Word" onclick = "createButton()">
-                <br>
-                
-    </form>
-    <button type="button" >this</button>
+  function onMouseUp() {
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+    btn.remove(); // delete button when mouse released
+  }
+
+  btn.addEventListener("mousedown", (e) => {
+    offsetX = e.offsetX;
+    offsetY = e.offsetY;
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+});
+
+
+
 
     
-
+// create main sudoku table
    const container = document.createElement('div');
 container.id = 'container';
 document.body.appendChild(container);
@@ -174,11 +202,6 @@ for (let i = 0; i < 9; i++) {
     container.appendChild(btn);
   }
 }
-    //buttons
-    /*const btn = document.createElement('button');
-btn.textContent = 'ONE';
-btn.classList.add('left-button');
-document.body.appendChild(btn);*/
     
   </script>
 </body>
