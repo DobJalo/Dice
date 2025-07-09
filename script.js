@@ -246,11 +246,27 @@ if (!isValid(matrix, row, col, num)) {
   btn.remove();
   return;
 }
+    
+function isPuzzleComplete(board) {
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (board[row][col] === ' ') return false;
+    }
+  }
+  return true;
+}
 
 
 matrix[row][col] = num;
 tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
 
+// check if completed
+if (isPuzzleComplete(matrix)) {
+  if (matricesAreEqual(matrix, originalMatrix)) {
+    alert("завершение");
+  } 
+  }
+}
 
 
 
