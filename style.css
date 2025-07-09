@@ -17,7 +17,8 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;  
-  align-items: center;       
+  align-items: center;
+  position: relative;      
 }
 
 #container {
@@ -25,6 +26,7 @@ body {
   grid-template-columns: repeat(9, 40px);
   grid-gap: 0;
   width: fit-content;
+  margin-top: 60px;
 }
 
 #container button {
@@ -40,19 +42,12 @@ body {
   cursor: pointer;
 }
 
-
-
-body {
-  margin: 0;
-  height: 100vh;
-  position: relative;
-}
-
 #top-center {
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1000;
 }
 
 button {
