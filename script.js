@@ -204,7 +204,7 @@ for (let i = 1; i <= 9; i++) {
     }
 
 
-let player;
+/*let player;
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
@@ -244,7 +244,7 @@ if (isPuzzleComplete(matrix)) {
       }
     });
   }
-}
+}*/
 
       
 
