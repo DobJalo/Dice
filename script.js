@@ -156,12 +156,13 @@ addBtn.addEventListener("mousedown", (e) => {
 
   document.body.appendChild(btn);
 
-  let offsetX = e.clientX - centerX;
-  let offsetY = e.clientY - centerY;
+  let offsetX = e.clientX - rect.left;
+  let offsetY = e.clientY - rect.top;
 
   function onMouseMove(e) {
-    btn.style.left = `${e.pageX - offsetX}px`;
+       btn.style.left = `${e.pageX - offsetX}px`;
     btn.style.top = `${e.pageY - offsetY}px`;
+    btn.style.transform = ""; 
     btn.style.transform = "";
   }
 
