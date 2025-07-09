@@ -140,7 +140,7 @@ addBtn.textContent = "1";
 topCenter.appendChild(addBtn);
 
 // move button
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener("mousedown", (e) => {
   const btn = document.createElement("button");
   btn.textContent = "1";
   btn.style.position = "absolute";
@@ -156,9 +156,8 @@ addBtn.addEventListener("click", () => {
 
   document.body.appendChild(btn);
 
- 
-  let offsetX = rect.width / 2;
-  let offsetY = rect.height / 2;
+  let offsetX = e.clientX - centerX;
+  let offsetY = e.clientY - centerY;
 
   function onMouseMove(e) {
     btn.style.left = `${e.pageX - offsetX}px`;
@@ -174,6 +173,8 @@ addBtn.addEventListener("click", () => {
 
   document.addEventListener("mousemove", onMouseMove);
   document.addEventListener("mouseup", onMouseUp);
+
+  e.preventDefault();
 });
 
 
