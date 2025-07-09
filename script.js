@@ -203,6 +203,52 @@ for (let i = 1; i <= 9; i++) {
       btn.style.transform = "";
     }
 
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '0',
+    width: '0',
+    videoId: 'VMFJwSR1MQQ',
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  console.log("Player ready");
+}
+
+if (isPuzzleComplete(matrix)) {
+  if (matricesAreEqual(matrix, originalMatrix)) {
+
+    let continueBtn = document.createElement('button');
+    continueBtn.textContent = 'Continue';
+    continueBtn.style.position = 'fixed';
+    continueBtn.style.top = '50%';
+    continueBtn.style.right = '20px';
+    continueBtn.style.transform = 'translateY(-50%)';
+    continueBtn.style.padding = '10px 20px';
+    continueBtn.style.fontSize = '16px';
+    continueBtn.style.cursor = 'pointer';
+    document.body.appendChild(continueBtn);
+
+    continueBtn.addEventListener('click', () => {
+      continueBtn.remove();  
+      if (player && player.playVideo) {
+        player.playVideo();
+      } else {
+        alert("Player is not ready yet");
+      }
+    });
+  }
+}
+
+      
+
+    
     //delete button
     function onMouseUp() {
   document.removeEventListener("mousemove", onMouseMove);
@@ -248,87 +294,6 @@ for (let i = 1; i <= 9; i++) {
           alert("завершение");
         }
       }*/
-      let player;
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '0',
-    width: '0',
-    videoId: 'VMFJwSR1MQQ',
-    events: {
-      'onReady': onPlayerReady
-    }
-  });
-}
-
-function onPlayerReady(event) {
-  console.log("Player ready");
-}
-
-
-/*if (isPuzzleComplete(matrix)) {
-  if (matricesAreEqual(matrix, originalMatrix)) {
-
-    let continueBtn = document.createElement('button');
-    continueBtn.textContent = 'Continue';
-    continueBtn.style.position = 'fixed';
-    continueBtn.style.top = '50%';
-    continueBtn.style.right = '20px';
-    continueBtn.style.transform = 'translateY(-50%)';
-    continueBtn.style.padding = '10px 20px';
-    continueBtn.style.fontSize = '16px';
-    continueBtn.style.cursor = 'pointer';
-    document.body.appendChild(continueBtn);
-
-    continueBtn.addEventListener('click', () => {
-      continueBtn.remove();  
-      if (player && player.playVideo) {
-        player.playVideo();
-      } else {
-        alert("Player is not ready yet");
-      }
-    });
-  }
-}
-*/
-      if (isPuzzleComplete(matrix)) {
-  console.log("Puzzle complete: true");
-  if (matricesAreEqual(matrix, originalMatrix)) {
-    console.log("Matrixes are equal");
-    if (!document.getElementById('continue-btn')) {
-
-      let continueBtn = document.createElement('button');
-      continueBtn.id = 'continue-btn';
-      continueBtn.textContent = 'Continue';
-      continueBtn.style.position = 'fixed';
-      continueBtn.style.top = '50%';
-      continueBtn.style.right = '20px';
-      continueBtn.style.transform = 'translateY(-50%)';
-      continueBtn.style.padding = '10px 20px';
-      continueBtn.style.fontSize = '16px';
-      continueBtn.style.cursor = 'pointer';
-      document.body.appendChild(continueBtn);
-
-      continueBtn.addEventListener('click', () => {
-        continueBtn.remove();
-        if (player && player.playVideo) {
-          player.playVideo();
-        } else {
-          alert("Player not ready");
-        }
-      });
-    }
-  } else {
-    console.log("Matrixes are NOT equal");
-  }
-} else {
-  console.log("Puzzle complete: false");
-}
-
-
-
-      
-
       
       break;  
     }
