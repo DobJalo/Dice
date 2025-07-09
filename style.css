@@ -40,20 +40,26 @@ body {
   cursor: pointer;
 }
 
-button {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: gray;
-  font-size: 16px;
-  padding: 0;
-  box-sizing: border-box;
-  background: white;
-  cursor: pointer;
+
+
+body {
+  margin: 0;
+  height: 100vh;
+  position: relative;
 }
 
-#add {
-  position: relative;
+#top-center {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid gray;
+  background: white;
+  cursor: pointer;
 }
