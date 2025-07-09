@@ -205,6 +205,56 @@ for (let i = 1; i <= 9; i++) {
 
     //delete button
     function onMouseUp() {
+  document.removeEventListener("mousemove", onMouseMove);
+  document.removeEventListener("mouseup", onMouseUp);
+
+  const btnRect = btn.getBoundingClientRect();
+  const btnCenterX = btnRect.left + btnRect.width / 2;
+  const btnCenterY = btnRect.top + btnRect.height / 2;
+
+  const tableButtons = container.querySelectorAll('button');
+
+  for (const tableBtn of tableButtons) {
+    const rect = tableBtn.getBoundingClientRect();
+
+    if (
+      btnCenterX >= rect.left &&
+      btnCenterX <= rect.right &&
+      btnCenterY >= rect.top &&
+      btnCenterY <= rect.bottom
+    ) {
+      const index = Array.from(container.children).indexOf(tableBtn);
+      const row = Math.floor(index / 9);
+      const col = index % 9;
+
+      if (fixedCells[row][col]) {
+        alert("WRONG!");
+        btn.remove();
+        return;
+      }
+
+      const num = Number(btn.getAttribute("data-value"));
+      if (!isValid(matrix, row, col, num)) {
+        alert("WRONG!");
+        btn.remove();
+        return;
+      }
+
+      matrix[row][col] = num;
+      tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
+
+      if (isPuzzleComplete(matrix)) {
+        if (matricesAreEqual(matrix, originalMatrix)) {
+          alert("завершение");
+        }
+      }
+      break;  // важный выход из цикла после вставки
+    }
+  }
+
+  btn.remove();  // Удаляем кнопку-накладку
+}
+   /* function onMouseUp() {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseup", onMouseUp);
       
@@ -241,7 +291,7 @@ for (const tableBtn of tableButtons) {
   location.reload();
 }
     }*/
-      const index = Array.from(container.children).indexOf(tableBtn);
+      /*const index = Array.from(container.children).indexOf(tableBtn);
 const row = Math.floor(index / 9);
 const col = index % 9;
 
@@ -280,8 +330,8 @@ if (isPuzzleComplete(matrix)) {
   }
 }
 
-btn.remove();
-    }
+btn.remove(); // строка 283
+   }*/
 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseup", onMouseUp);
