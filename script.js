@@ -102,7 +102,7 @@ function solveSudokuCount(board, count = {num:0}) {
 }
 
 // create unique solution
-function createPuzzle(board, toRemove = 40) {
+function createPuzzle(board, toRemove = 1) { //40
   let removed = 0;
   const positions = [];
   // collect all positions
@@ -138,7 +138,7 @@ function createPuzzle(board, toRemove = 40) {
 
 
 
-    createPuzzle(matrix, 5); // 40
+    createPuzzle(matrix, 1); // 40
     
 // create copy
 const originalMatrix = matrix.map(row => row.slice());
