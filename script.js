@@ -248,7 +248,6 @@ if (!isValid(matrix, row, col, num)) {
 }
 
 
-const num = Number(btn.getAttribute("data-value")); 
 matrix[row][col] = num;
 tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
 
