@@ -133,8 +133,53 @@ const topCenter = document.createElement("div");
 topCenter.id = "top-center";
 document.body.appendChild(topCenter);
 
+//create buttons
+for (let i = 1; i <= 9; i++) {
+  const addBtn = document.createElement("button");
+  addBtn.textContent = i;
+  addBtn.style.margin = "0 5px";  
+  topCenter.appendChild(addBtn);
+
+  addBtn.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+
+    const rect = addBtn.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.style.position = "absolute";
+    btn.style.left = `${centerX}px`;
+    btn.style.top = `${centerY}px`;
+    btn.style.transform = "translate(-50%, -50%)";
+    btn.style.zIndex = "1000";
+
+    document.body.appendChild(btn);
+
+    let offsetX = e.clientX - rect.left;
+    let offsetY = e.clientY - rect.top;
+
+    function onMouseMove(e) {
+      btn.style.left = `${e.pageX - offsetX}px`;
+      btn.style.top = `${e.pageY - offsetY}px`;
+      btn.style.transform = "";
+    }
+
+    function onMouseUp() {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+      btn.remove();
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+}
+
+
 // create button
-const addBtn = document.createElement("button");
+/*const addBtn = document.createElement("button");
 addBtn.id = "addButton";
 addBtn.textContent = "1";
 topCenter.appendChild(addBtn);
@@ -177,7 +222,7 @@ addBtn.addEventListener("mousedown", (e) => {
 
   e.preventDefault();
 });
-
+*/
 
 
 
