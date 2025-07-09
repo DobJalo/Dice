@@ -52,6 +52,10 @@ function shuffleCols(matrix) {
 shuffleRows(matrix);
 shuffleCols(matrix);
 
+// create copy
+const originalMatrix = matrix.map(row => row.slice());
+const fixedCells = originalMatrix.map(row => row.map(cell => cell !== ' '));
+
 
     // DELET MATRIX NUMBERS
     // check if it is possible to put num in (row, col) without conflicts
@@ -126,8 +130,6 @@ function createPuzzle(board, toRemove = 40) {
 }
 
 
-const originalMatrix = matrix.map(row => row.slice()); // create copy
-const fixedCells = originalMatrix.map(row => row.map(cell => cell !== ' '));
 
     createPuzzle(matrix, 40); 
     
@@ -215,14 +217,14 @@ const col = index % 9;
 
 
 if (fixedCells[row][col]) {
-  alert("Это число нельзя менять!");
+  alert("WRONG!");
   btn.remove(); 
   return;
 }
 
 
 if (!isValid(matrix, row, col, Number(btn.textContent))) {
-  alert("Это число здесь ставить нельзя!");
+  alert("WRONG!");
   btn.remove();
   return;
 }
