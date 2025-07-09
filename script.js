@@ -1,4 +1,14 @@
-
+const imageMap = {
+  1: 'images/bastard.jpg',
+  2: 'images/goblin.jpg',
+  3: 'images/wolf.jpg',
+  4: 'images/cherry_bomb.jpg',
+  5: 'images/flower_boy.jpg',
+  6: 'images/igor.jpg',
+  7: 'images/cmiygl.jpg',
+  8: 'images/cmiygl_2.jpg',
+  9: 'images/chromakopia.jpg'
+};
 
     // CREATE MATRIX
 function pattern(row, col) {
@@ -230,7 +240,11 @@ if (!isValid(matrix, row, col, Number(btn.textContent))) {
 }
 
 
-tableBtn.textContent = btn.textContent;
+//tableBtn.textContent = btn.textContent; replaced
+      const num = Number(btn.textContent);
+tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
+
+      
 matrix[row][col] = Number(btn.textContent);
 
 
@@ -268,7 +282,15 @@ document.body.appendChild(container);
 for (let i = 0; i < 9; i++) {
   for (let j = 0; j < 9; j++) {
     const btn = document.createElement('button');
-    btn.textContent = matrix[i][j];
+    //btn.textContent = matrix[i][j]; replaced
+      const value = matrix[i][j];
+if (value !== ' ') {
+  btn.innerHTML = `<img src="${imageMap[value]}" style="width:100%; height:100%;" />`;
+} else {
+  btn.textContent = ''; 
+}
+
+      
 
 
     if (i % 3 === 0) btn.style.borderTopWidth = '3px';
