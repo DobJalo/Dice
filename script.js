@@ -153,7 +153,10 @@ document.body.appendChild(topCenter);
 //create buttons
 for (let i = 1; i <= 9; i++) {
   const addBtn = document.createElement("button");
-  addBtn.textContent = i;
+  //addBtn.textContent = i;
+  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
+
+  
   addBtn.style.margin = "0 5px";  
   topCenter.appendChild(addBtn);
 
@@ -165,7 +168,10 @@ for (let i = 1; i <= 9; i++) {
     const centerY = rect.top + rect.height / 2;
 
     const btn = document.createElement("button");
-    btn.textContent = i;
+    //btn.textContent = i;
+    btn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
+    btn.setAttribute("data-value", i);
+
     btn.style.position = "absolute";
     btn.style.left = `${centerX}px`;
     btn.style.top = `${centerY}px`;
@@ -245,7 +251,11 @@ if (!isValid(matrix, row, col, Number(btn.textContent))) {
 tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
 
       
-matrix[row][col] = Number(btn.textContent);
+//matrix[row][col] = Number(btn.textContent);
+    const num = Number(btn.getAttribute("data-value"));
+matrix[row][col] = num;
+tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
+
 
 
       
