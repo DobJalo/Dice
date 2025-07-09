@@ -248,7 +248,25 @@ for (let i = 1; i <= 9; i++) {
           alert("завершение");
         }
       }*/
-      if (isPuzzleComplete(matrix)) {
+      let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '0',
+    width: '0',
+    videoId: 'VMFJwSR1MQQ',
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  console.log("Player ready");
+}
+
+
+if (isPuzzleComplete(matrix)) {
   if (matricesAreEqual(matrix, originalMatrix)) {
 
     let continueBtn = document.createElement('button');
@@ -264,12 +282,14 @@ for (let i = 1; i <= 9; i++) {
 
     continueBtn.addEventListener('click', () => {
       continueBtn.remove();  
-      
-      player.playVideo();
+      if (player && player.playVideo) {
+        player.playVideo();
+      } else {
+        alert("Player is not ready yet");
+      }
     });
   }
 }
-
 
 
       
