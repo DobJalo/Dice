@@ -127,6 +127,8 @@ function createPuzzle(board, toRemove = 40) {
 
 
 const originalMatrix = matrix.map(row => row.slice()); // create copy
+const fixedCells = originalMatrix.map(row => row.map(cell => cell !== ' '));
+
     createPuzzle(matrix, 40); 
     
 
@@ -193,7 +195,7 @@ for (const tableBtn of tableButtons) {
     btnCenterY <= rect.bottom
   ) {
    
-    if (tableBtn.textContent.trim() === '') {
+    /*if (tableBtn.textContent.trim() === '') {
      
       tableBtn.textContent = btn.textContent;
 
@@ -206,7 +208,31 @@ for (const tableBtn of tableButtons) {
         if (!matricesAreEqual(matrix, originalMatrix)) {
   location.reload();
 }
-    }
+    }*/
+      const index = Array.from(container.children).indexOf(tableBtn);
+const row = Math.floor(index / 9);
+const col = index % 9;
+
+
+if (fixedCells[row][col]) {
+  alert("Это число нельзя менять!");
+  btn.remove(); 
+  return;
+}
+
+
+if (!isValid(matrix, row, col, Number(btn.textContent))) {
+  alert("Это число здесь ставить нельзя!");
+  btn.remove();
+  return;
+}
+
+
+tableBtn.textContent = btn.textContent;
+matrix[row][col] = Number(btn.textContent);
+
+
+      
     break;
   }
 }
