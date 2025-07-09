@@ -123,7 +123,7 @@ function createPuzzle(board, toRemove = 40) {
   return board;
 }
 
-    // SHOW RESULT
+
     createPuzzle(matrix, 40); 
     
 
@@ -136,17 +136,21 @@ document.body.appendChild(topCenter);
 // create button
 const addBtn = document.createElement("button");
 addBtn.id = "addButton";
-addBtn.textContent = "Создать";
+addBtn.textContent = "1";
 topCenter.appendChild(addBtn);
 
 // move button
 addBtn.addEventListener("click", () => {
   const btn = document.createElement("button");
-  btn.textContent = "🔘";
+  btn.textContent = "1";
   btn.style.position = "absolute";
-  btn.style.left = "50%";
-  btn.style.top = "50%";
-  btn.style.transform = "translate(-50%, -50%)";
+
+    //create it on the same place
+  const rect = addBtn.getBoundingClientRect();
+btn.style.left = `${rect.left + rect.width / 2}px`;
+btn.style.top = `${rect.top + rect.height / 2}px`;
+btn.style.transform = "translate(-50%, -50%)";
+
   btn.style.zIndex = "1000";
   document.body.appendChild(btn);
 
