@@ -144,7 +144,15 @@ function createPuzzle(board, toRemove = 40) {
 const originalMatrix = matrix.map(row => row.slice());
 const fixedCells = originalMatrix.map(row => row.map(cell => cell !== ' '));
 
-   
+   function isPuzzleComplete(board) {
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (board[row][col] === ' ') return false;
+    }
+  }
+  return true;
+}
+
 // create container on top
 const topCenter = document.createElement("div");
 topCenter.id = "top-center";
@@ -247,14 +255,6 @@ if (!isValid(matrix, row, col, num)) {
   return;
 }
     
-function isPuzzleComplete(board) {
-  for (let row = 0; row < 9; row++) {
-    for (let col = 0; col < 9; col++) {
-      if (board[row][col] === ' ') return false;
-    }
-  }
-  return true;
-}
 
 
 matrix[row][col] = num;
