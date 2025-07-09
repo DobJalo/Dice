@@ -1,3 +1,4 @@
+<html>
 <head>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -205,3 +206,4 @@ for (let i = 0; i < 9; i++) {
     
   </script>
 </body>
+</html>
