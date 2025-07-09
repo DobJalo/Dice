@@ -145,36 +145,37 @@ addBtn.addEventListener("click", () => {
   btn.textContent = "1";
   btn.style.position = "absolute";
 
-    //create it on the same place
   const rect = addBtn.getBoundingClientRect();
-btn.style.left = `${rect.left + rect.width / 2}px`;
-btn.style.top = `${rect.top + rect.height / 2}px`;
-btn.style.transform = "translate(-50%, -50%)";
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
 
+  btn.style.left = `${centerX}px`;
+  btn.style.top = `${centerY}px`;
+  btn.style.transform = "translate(-50%, -50%)";
   btn.style.zIndex = "1000";
+
   document.body.appendChild(btn);
 
-  let offsetX = 0;
-  let offsetY = 0;
+ 
+  let offsetX = rect.width / 2;
+  let offsetY = rect.height / 2;
 
   function onMouseMove(e) {
     btn.style.left = `${e.pageX - offsetX}px`;
     btn.style.top = `${e.pageY - offsetY}px`;
+    btn.style.transform = "";
   }
 
   function onMouseUp() {
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", onMouseUp);
-    btn.remove(); // delete button when mouse released
+    btn.remove();
   }
 
-  btn.addEventListener("mousedown", (e) => {
-    offsetX = e.offsetX;
-    offsetY = e.offsetY;
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-  });
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseup", onMouseUp);
 });
+
 
 
 
