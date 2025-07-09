@@ -246,15 +246,10 @@ if (!isValid(matrix, row, col, Number(btn.textContent))) {
 }
 
 
-//tableBtn.textContent = btn.textContent; replaced
-      const num = Number(btn.textContent);
-tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
-
-      
-//matrix[row][col] = Number(btn.textContent);
-    const num = Number(btn.getAttribute("data-value"));
+const num = Number(btn.getAttribute("data-value")); 
 matrix[row][col] = num;
 tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
+
 
 
 
