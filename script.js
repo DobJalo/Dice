@@ -4,8 +4,6 @@
 </head>
 
 <body>
-  <pre id="output"></pre>
-
   <script>
 
     // CREATE MATRIX
