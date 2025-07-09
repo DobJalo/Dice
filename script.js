@@ -166,10 +166,45 @@ for (let i = 1; i <= 9; i++) {
       btn.style.transform = "";
     }
 
+    //delete button
     function onMouseUp() {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseup", onMouseUp);
-      btn.remove();
+      
+
+        //assign value
+const btnRect = btn.getBoundingClientRect();
+const btnCenterX = btnRect.left + btnRect.width / 2;
+const btnCenterY = btnRect.top + btnRect.height / 2;
+
+
+const tableButtons = container.querySelectorAll('button');
+for (const tableBtn of tableButtons) {
+  const rect = tableBtn.getBoundingClientRect();
+
+
+  if (
+    btnCenterX >= rect.left &&
+    btnCenterX <= rect.right &&
+    btnCenterY >= rect.top &&
+    btnCenterY <= rect.bottom
+  ) {
+   
+    if (tableBtn.textContent.trim() === '') {
+     
+      tableBtn.textContent = btn.textContent;
+
+     
+      const index = Array.from(container.children).indexOf(tableBtn);
+      const row = Math.floor(index / 9);
+      const col = index % 9;
+      matrix[row][col] = Number(btn.textContent);
+    }
+    break;
+  }
+}
+
+btn.remove();
     }
 
     document.addEventListener("mousemove", onMouseMove);
@@ -177,52 +212,7 @@ for (let i = 1; i <= 9; i++) {
   });
 }
 
-
-// create button
-/*const addBtn = document.createElement("button");
-addBtn.id = "addButton";
-addBtn.textContent = "1";
-topCenter.appendChild(addBtn);
-
-// move button
-addBtn.addEventListener("mousedown", (e) => {
-  const btn = document.createElement("button");
-  btn.textContent = "1";
-  btn.style.position = "absolute";
-
-  const rect = addBtn.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const centerY = rect.top + rect.height / 2;
-
-  btn.style.left = `${centerX}px`;
-  btn.style.top = `${centerY}px`;
-  btn.style.transform = "translate(-50%, -50%)";
-  btn.style.zIndex = "1000";
-
-  document.body.appendChild(btn);
-
-  let offsetX = e.clientX - rect.left;
-  let offsetY = e.clientY - rect.top;
-
-  function onMouseMove(e) {
-       btn.style.left = `${e.pageX - offsetX}px`;
-    btn.style.top = `${e.pageY - offsetY}px`;
-    btn.style.transform = ""; 
-    btn.style.transform = "";
-  }
-
-  function onMouseUp() {
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
-    btn.remove();
-  }
-
-  document.addEventListener("mousemove", onMouseMove);
-  document.addEventListener("mouseup", onMouseUp);
-
-  e.preventDefault();
-});
-*/
+  
 
 
 
