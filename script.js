@@ -222,9 +222,8 @@ if (fixedCells[row][col]) {
 
 
 if (!isValid(matrix, row, col, Number(btn.textContent))) {
-  /*alert("Это число здесь ставить нельзя!");
-  btn.remove();*/
-    location.reload();
+  alert("Это число здесь ставить нельзя!");
+  btn.remove();
   return;
 }
 
