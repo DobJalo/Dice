@@ -168,7 +168,7 @@ for (let i = 1; i <= 9; i++) {
   const addBtn = document.createElement("button");
   
   //addBtn.textContent = i;
-  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:40px; height:40px;" />`; // 30*30
+  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:40px; height:40px;" />`;
 
   
   addBtn.style.margin = "0 5px";  
@@ -183,7 +183,7 @@ for (let i = 1; i <= 9; i++) {
 
     const btn = document.createElement("button");
     //btn.textContent = i;
-    btn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
+    btn.innerHTML = `<img src="${imageMap[i]}" style="width:40px; height:40px;" />`;
     btn.setAttribute("data-value", i);
 
     btn.style.position = "absolute";
@@ -248,90 +248,13 @@ for (let i = 1; i <= 9; i++) {
           alert("завершение");
         }
       }
-      break;  // важный выход из цикла после вставки
+      break;  
     }
   }
 
-  btn.remove();  // Удаляем кнопку-накладку
+  btn.remove();  
 }
-   /* function onMouseUp() {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
-      
-
-        //assign value
-const btnRect = btn.getBoundingClientRect();
-const btnCenterX = btnRect.left + btnRect.width / 2;
-const btnCenterY = btnRect.top + btnRect.height / 2;
-
-
-const tableButtons = container.querySelectorAll('button');
-for (const tableBtn of tableButtons) {
-  const rect = tableBtn.getBoundingClientRect();
-
-
-  if (
-    btnCenterX >= rect.left &&
-    btnCenterX <= rect.right &&
-    btnCenterY >= rect.top &&
-    btnCenterY <= rect.bottom
-  ) {
-   
-    /*if (tableBtn.textContent.trim() === '') {
-     
-      tableBtn.textContent = btn.textContent;
-
-     
-      const index = Array.from(container.children).indexOf(tableBtn);
-      const row = Math.floor(index / 9);
-      const col = index % 9;
-      matrix[row][col] = Number(btn.textContent);
-
-        if (!matricesAreEqual(matrix, originalMatrix)) {
-  location.reload();
-}
-    }*/
-      /*const index = Array.from(container.children).indexOf(tableBtn);
-const row = Math.floor(index / 9);
-const col = index % 9;
-
-
-if (fixedCells[row][col]) {
-  alert("WRONG!");
-  btn.remove(); 
-  return;
-}
-
-const num = Number(btn.getAttribute("data-value"));
-if (!isValid(matrix, row, col, num)) {
-  alert("WRONG!");
-  btn.remove();
-  return;
-}
-    
-
-
-matrix[row][col] = num;
-tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
-
-// check if completed
-if (isPuzzleComplete(matrix)) {
-  if (matricesAreEqual(matrix, originalMatrix)) {
-    alert("завершение");
-  } 
-  }
-}
-
-
-
   
-      
-    break;
-  }
-}
-
-btn.remove(); // строка 283
-   }*/
 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseup", onMouseUp);
