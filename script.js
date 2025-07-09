@@ -243,11 +243,36 @@ for (let i = 1; i <= 9; i++) {
       matrix[row][col] = num;
       tableBtn.innerHTML = `<img src="${imageMap[num]}" style="width:100%; height:100%;" />`;
 
-      if (isPuzzleComplete(matrix)) {
+      /*if (isPuzzleComplete(matrix)) {
         if (matricesAreEqual(matrix, originalMatrix)) {
           alert("завершение");
         }
-      }
+      }*/
+      if (isPuzzleComplete(matrix)) {
+  if (matricesAreEqual(matrix, originalMatrix)) {
+
+    let continueBtn = document.createElement('button');
+    continueBtn.textContent = 'Continue';
+    continueBtn.style.position = 'fixed';
+    continueBtn.style.top = '50%';
+    continueBtn.style.right = '20px';
+    continueBtn.style.transform = 'translateY(-50%)';
+    continueBtn.style.padding = '10px 20px';
+    continueBtn.style.fontSize = '16px';
+    continueBtn.style.cursor = 'pointer';
+    document.body.appendChild(continueBtn);
+
+    continueBtn.addEventListener('click', () => {
+      continueBtn.remove();  
+      
+      player.playVideo();
+    });
+  }
+}
+
+
+
+      
       break;  
     }
   }
