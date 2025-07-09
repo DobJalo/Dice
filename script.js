@@ -124,6 +124,7 @@ function createPuzzle(board, toRemove = 40) {
 }
 
 
+const originalMatrix = matrix.map(row => row.slice()); // create copy
     createPuzzle(matrix, 40); 
     
 
@@ -199,6 +200,10 @@ for (const tableBtn of tableButtons) {
       const row = Math.floor(index / 9);
       const col = index % 9;
       matrix[row][col] = Number(btn.textContent);
+
+        if (!matricesAreEqual(matrix, originalMatrix)) {
+  location.reload();
+}
     }
     break;
   }
@@ -212,8 +217,15 @@ btn.remove();
   });
 }
 
-  
-
+  // compare matrix with original matrix
+function matricesAreEqual(mat1, mat2) {
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      if (mat1[i][j] !== mat2[i][j]) return false;
+    }
+  }
+  return true;
+}
 
 
 
