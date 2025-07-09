@@ -1,55 +1,57 @@
 
 
     // CREATE MATRIX
-    const matrix = [];
-    const startNum = Math.floor(Math.random() * 9) + 1;
-    const output = document.getElementById("output");
-    let result = "";
+function pattern(row, col) {
+  return (3 * (row % 3) + Math.floor(row / 3) + col) % 9;
+}
 
-    // filling first row
-    const firstRow = [];
-    for (let i = 0; i < 9; i++) {
-      let value = startNum + i;
-      if (value > 9) value -= 9;
-      firstRow.push(value);
+const matrix = [];
+
+for (let row = 0; row < 9; row++) {
+  const newRow = [];
+  for (let col = 0; col < 9; col++) {
+    newRow.push(pattern(row, col) + 1);
+  }
+  matrix.push(newRow);
+}
+
+// mix array
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+// mix every three rows
+function shuffleRows(matrix) {
+  for (let block = 0; block < 3; block++) {
+    const rows = [0, 1, 2].map(i => block * 3 + i);
+    shuffleArray(rows);
+    const temp = rows.map(r => matrix[r]);
+    for (let i = 0; i < 3; i++) {
+      matrix[block * 3 + i] = temp[i];
     }
-    matrix.push(firstRow);
+  }
+}
 
-    // filling other rows
-    for (let row = 1; row < 9; row++) {
-      const prevRow = matrix[row - 1];
-      const newRow = [];
-
-      // every third row adds 4, others add 3 to the number
-      const increment = (row + 1) % 3 === 0 ? 4 : 3;
-
-      for (let col = 0; col < 9; col++) {
-        let value = prevRow[col] + increment;
-        if (value > 9) value -= 9;
-        newRow.push(value);
+// mix every three columns
+function shuffleCols(matrix) {
+  for (let block = 0; block < 3; block++) {
+    const cols = [0, 1, 2].map(i => block * 3 + i);
+    shuffleArray(cols);
+    for (let row = 0; row < 9; row++) {
+      const temp = cols.map(c => matrix[row][c]);
+      for (let i = 0; i < 3; i++) {
+        matrix[row][block * 3 + i] = temp[i];
       }
-
-      matrix.push(newRow);
     }
+  }
+}
 
-    // swap rows
-    function swapRowsInBlock(matrix, blockIndex) {
-      const base = blockIndex * 3;
-      let row1 = base + Math.floor(Math.random() * 3);
-      let row2 = base + Math.floor(Math.random() * 3);
+shuffleRows(matrix);
+shuffleCols(matrix);
 
-      while (row1 === row2) {
-        row2 = base + Math.floor(Math.random() * 3);
-      }
-
-      [matrix[row1], matrix[row2]] = [matrix[row2], matrix[row1]];
-    }
-
-    // swap rows in every "three rows" block
-    for (let block = 0; block < 3; block++) {
-      swapRowsInBlock(matrix, block);
-      swapRowsInBlock(matrix, block);
-    }
 
     // DELET MATRIX NUMBERS
     // check if it is possible to put num in (row, col) without conflicts
