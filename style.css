@@ -39,3 +39,21 @@ body {
   background: white;
   cursor: pointer;
 }
+
+button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  font-size: 16px;
+  padding: 0;
+  box-sizing: border-box;
+  background: white;
+  cursor: pointer;
+}
+
+#add {
+  position: relative;
+}
