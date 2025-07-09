@@ -168,7 +168,7 @@ for (let i = 1; i <= 9; i++) {
   const addBtn = document.createElement("button");
   
   //addBtn.textContent = i;
-  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
+  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:40px; height:40px;" />`; // 30*30
 
   
   addBtn.style.margin = "0 5px";  
