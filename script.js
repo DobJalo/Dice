@@ -156,7 +156,7 @@ for (let i = 1; i <= 9; i++) {
   const addBtn = document.createElement("button");
   
   //addBtn.textContent = i;
-  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:24px; height:24px;" />`;
+  addBtn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
 
   
   addBtn.style.margin = "0 5px";  
@@ -171,7 +171,7 @@ for (let i = 1; i <= 9; i++) {
 
     const btn = document.createElement("button");
     //btn.textContent = i;
-    btn.innerHTML = `<img src="${imageMap[i]}" style="width:24px; height:24px;" />`;
+    btn.innerHTML = `<img src="${imageMap[i]}" style="width:30px; height:30px;" />`;
     btn.setAttribute("data-value", i);
 
     btn.style.position = "absolute";
@@ -291,7 +291,8 @@ for (let i = 0; i < 9; i++) {
     //btn.textContent = matrix[i][j]; replaced
       const value = matrix[i][j];
 if (value !== ' ') {
-  btn.innerHTML = `<img src="${imageMap[value]}" style="width:90%; height:90%; object-fit: contain;" />`;
+  btn.innerHTML = `<img src="${imageMap[value]}" style="width:100%; height:100%;" />`;
+
 
 } else {
   btn.textContent = ''; 
