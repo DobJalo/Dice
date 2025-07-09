@@ -1,10 +1,4 @@
-<html>
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
-  <script>
 
     // CREATE MATRIX
     const matrix = [];
@@ -202,6 +196,4 @@ for (let i = 0; i < 9; i++) {
   }
 }
     
-  </script>
-</body>
-</html>
+
